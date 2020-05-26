@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+<data>
+    <variable
+        name="country"
+        type="com.example.kotlincountries.model.Country" />
+
+    <variable
+        name="listener"
+        type="com.example.kotlincountries.adapter.CountryClickListener" />
+
+</data>
+
+<androidx.appcompat.widget.LinearLayoutCompat
+
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:onClick="@{listener::onCountryClicked}"
+    android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:id="@+id/countryUuidtext"
+        android:text="@{String.valueOf(country.uuid)}">
+
+
+    </TextView>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:padding="3dp"
+        android:downloadUrl="@{country.flag}"
+        >
+
+
+    </ImageView>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:orientation="vertical"
+        android:gravity="center_vertical">
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{country.countryName}"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:padding="5dp">
+
+
+    </TextView>
+
+        <TextView
+            android:id="@+id/region"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{country.countryRegion}"
+            android:textSize="18sp"
+            android:padding="5dp">
+
+        </TextView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
+</layout>
